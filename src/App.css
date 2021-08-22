@@ -119,4 +119,8 @@ nav span svg {
   .App footer {
     flex-direction: column;
   }
+
+  .App main {
+    width: 80%;
+  }
 }
