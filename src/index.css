@@ -1,0 +1,22 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  background-image: url("https://user-images.githubusercontent.com/69181038/130332286-46abc8ac-3f70-405d-b822-3b0e124d1334.jpg");
+  background-color: #4d9ae6;
+  background-size: cover;
+  color: #444;
+  min-height: 100vh;
+}
+
+body * {
+  font-family: "Roboto", sans-serif !important;
+}
