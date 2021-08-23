@@ -11,7 +11,7 @@ import tableDataHelper from "./helpers/TableDataHelper";
 
 function App() {
   const [cityId, setCityId] = useState("");
-  const [cityData] = useCityData();
+  const [cityData, cityDataLoading] = useCityData();
   const [isToggled, toggle] = useToggle();
   const [cityWeatherData, loading] = useCityWeatherData(cityId);
   const { currentWeatherData, forecastWeatherData } = cityWeatherData;
@@ -32,6 +32,7 @@ function App() {
           cityData={cityData}
           cityId={cityId}
           handleChange={handleChange}
+          cityDataLoading={cityDataLoading}
         />
 
         {cityId && (

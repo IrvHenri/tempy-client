@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SelectMenu = ({ cityData, cityId, handleChange }) => {
+const SelectMenu = ({ cityData, cityId, handleChange, cityDataLoading }) => {
   const classes = useStyles();
 
   let menuItems =
@@ -39,7 +39,11 @@ const SelectMenu = ({ cityData, cityId, handleChange }) => {
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          {menuItems}
+          {cityDataLoading ? (
+            <MenuItem value={null}>Loading...</MenuItem>
+          ) : (
+            menuItems
+          )}
         </Select>
         {!cityId && (
           <FormHelperText>
