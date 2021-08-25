@@ -17,8 +17,7 @@ export const windSpeedConversionTableCell = (wind) => {
   return `${wind.toFixed()} m/sec`;
 };
 
-export const convertDate = (unix) => {
-  let result = fromUnixTime(unix);
+export const convertDate = (result) => {
   return format(new Date(result), "dd MMM ha");
 };
 

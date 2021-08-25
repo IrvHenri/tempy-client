@@ -15,6 +15,7 @@ const {
   temperatureConversionMinMax,
   windSpeedConversionTableCell,
   convertDateTableButton,
+  convertDate,
 } = CityProfileHelpers;
 
 const useStyles = makeStyles({
@@ -61,7 +62,7 @@ const CityWeatherTable = ({ tableData }) => {
               tableMode.map((row, i) => (
                 <TableRow key={i}>
                   <TableCell component="th" scope="row">
-                    {convertDateTableButton(row.dt_txt)}
+                    {convertDate(row.dt_txt)}
                   </TableCell>
                   <TableCell align="right">
                     {temperatureConversion(row.main.temp)}
