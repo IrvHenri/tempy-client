@@ -30,7 +30,8 @@ const CityWeatherTable = ({ tableData }) => {
   let tableButtons =
     tableData &&
     tableData.map((day, i) => {
-      let buttonText = convertDateTableButton(day[0][0].dt_txt);
+      console.log(day[i].dt_txt);
+      let buttonText = convertDateTableButton(day[i].dt_txt);
       return (
         <Button
           key={i}
@@ -41,6 +42,7 @@ const CityWeatherTable = ({ tableData }) => {
         </Button>
       );
     });
+
   return (
     <div className="city-weather-table">
       <TableContainer component={Paper}>
@@ -57,30 +59,28 @@ const CityWeatherTable = ({ tableData }) => {
           </TableHead>
           <TableBody>
             {tableMode &&
-              tableMode.map((row, i) => {
-                return row.map((cell, index) => (
-                  <TableRow key={index}>
-                    <TableCell component="th" scope="row">
-                      {convertDate(cell.dt)}
-                    </TableCell>
-                    <TableCell align="right">
-                      {temperatureConversion(cell.main.temp)}
-                    </TableCell>
-                    <TableCell align="right">
-                      {temperatureConversionMinMax(cell.main.temp_min)}
-                    </TableCell>
-                    <TableCell align="right">
-                      {temperatureConversionMinMax(cell.main.temp_max)}
-                    </TableCell>
-                    <TableCell align="right">
-                      {windSpeedConversionTableCell(cell.wind.speed)}
-                    </TableCell>
-                    <TableCell align="right">
-                      {cell.weather[0].description}
-                    </TableCell>
-                  </TableRow>
-                ));
-              })}
+              tableMode.map((row, i) => (
+                <TableRow key={i}>
+                  <TableCell component="th" scope="row">
+                    {convertDateTableButton(row.dt_txt)}
+                  </TableCell>
+                  <TableCell align="right">
+                    {temperatureConversion(row.main.temp)}
+                  </TableCell>
+                  <TableCell align="right">
+                    {temperatureConversionMinMax(row.main.temp_min)}
+                  </TableCell>
+                  <TableCell align="right">
+                    {temperatureConversionMinMax(row.main.temp_max)}
+                  </TableCell>
+                  <TableCell align="right">
+                    {windSpeedConversionTableCell(row.wind.speed)}
+                  </TableCell>
+                  <TableCell align="right">
+                    {row.weather[0].description}
+                  </TableCell>
+                </TableRow>
+              ))}
           </TableBody>
         </Table>
       </TableContainer>

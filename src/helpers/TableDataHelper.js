@@ -1,16 +1,23 @@
+import { convertDateTableButton } from "./CityProfileHelpers";
+
 const tableDataHelper = (forecastWeatherData) => {
   let forcastList = forecastWeatherData && forecastWeatherData.list;
-  let tableData = [];
   let index = 0;
+  let dateObject = {};
 
+  //New
   if (forcastList) {
-    while (index < forcastList.length) {
-      let copiedForcastList = [...forcastList];
-      tableData.push([copiedForcastList.splice(index, 8)]);
-      index += 8;
+    for (let val of forcastList) {
+      const convertedTime = convertDateTableButton(val.dt_txt);
+
+      if (dateObject[convertedTime]) {
+        dateObject[convertedTime].push(val);
+      } else {
+        dateObject[convertedTime] = [val];
+      }
     }
   }
-
+  let tableData = Object.values(dateObject);
   return tableData;
 };
 
