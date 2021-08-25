@@ -1,4 +1,4 @@
-import { fromUnixTime, format } from "date-fns";
+import { format } from "date-fns";
 
 //Convert Kelvin to C
 export const temperatureConversion = (kelvin) => {
