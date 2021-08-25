@@ -2,7 +2,6 @@ import { convertDateTableButton } from "./CityProfileHelpers";
 
 const tableDataHelper = (forecastWeatherData) => {
   let forcastList = forecastWeatherData && forecastWeatherData.list;
-  let index = 0;
   let dateObject = {};
 
   //New

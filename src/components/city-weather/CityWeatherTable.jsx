@@ -14,7 +14,6 @@ const {
   temperatureConversion,
   temperatureConversionMinMax,
   windSpeedConversionTableCell,
-  convertDate,
   convertDateTableButton,
 } = CityProfileHelpers;
 
