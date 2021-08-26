@@ -27,11 +27,11 @@ const CityWeatherTable = ({ tableData }) => {
   const classes = useStyles();
   const [tableMode, setTableMode] = useState(tableData[0]);
 
+  console.log(tableData[0][0]);
   let tableButtons =
     tableData &&
     tableData.map((day, i) => {
-      console.log(day[i].dt_txt);
-      let buttonText = convertDateTableButton(day[i].dt_txt);
+      let buttonText = convertDateTableButton(day[0].dt_txt);
       return (
         <Button
           key={i}
@@ -42,7 +42,7 @@ const CityWeatherTable = ({ tableData }) => {
         </Button>
       );
     });
-
+  console.log(tableButtons);
   return (
     <div className="city-weather-table">
       <TableContainer component={Paper}>
